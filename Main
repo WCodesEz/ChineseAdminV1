@@ -1,0 +1,200 @@
+if game.PlaceId == 155615604 then
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Chinese Admin", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local ExecuteTab = Window:MakeTab({
+	Name = "Execute",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local ExecuteSection = ExecuteTab:AddSection({
+	Name = "Execute Commands"
+})
+
+ExecuteSection:AddBind({
+	Name = "Superhuman",
+	Default = Enum.KeyCode.Q,
+	Hold = false,
+	Callback = function() 
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 100
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Reset WS and JP",
+	Default = Enum.KeyCode.E,
+	Hold = false,
+	Callback = function() 
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Death.",
+	Default = Enum.KeyCode.V,
+	Hold = false,
+	Callback = function() 
+		game.Players.LocalPlayer.Character.Head:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Tp Tool",
+	Default = Enum.KeyCode.T,
+	Hold = false,
+	Callback = function() 
+            mouse = game.Players.LocalPlayer:GetMouse()
+            tool = Instance.new("Tool")
+            tool.RequiresHandle = false
+            tool.Name = "Equip to Click TP"
+            tool.Activated:connect(function()
+            local pos = mouse.Hit+Vector3.new(0,2.5,0)
+            pos = CFrame.new(pos.X,pos.Y,pos.Z)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+            end)
+            tool.Parent = game.Players.LocalPlayer.Backpack
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Infinite Jump",
+	Default = Enum.KeyCode.Y,
+	Hold = false,
+	Callback = function() 
+            local InfiniteJumpEnabled = true
+            game:GetService("UserInputService").JumpRequest:connect(function()
+                if InfiniteJumpEnabled then
+                    game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+                end
+            end)
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Remove Doors",
+	Default = Enum.KeyCode.U,
+	Hold = false,
+	Callback = function() 
+        game.Workspace.Doors:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Remove Fences",
+	Default = Enum.KeyCode.P,
+	Hold = false,
+	Callback = function() 
+        game.Workspace.Prison_Fences:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Mod M9",
+	Default = Enum.KeyCode.G,
+	Hold = false,
+	Callback = function() 
+        local player = game:GetService("Players").LocalPlayer
+    local gun = player.Backpack:FindFirstChild("M9")
+    local sM = require(gun:FindFirstChild("GunStates"))
+    sM["Damage"] = 100
+    sM["MaxAmmo"] = math.huge
+    sM["StoredAmmo"] = math.huge
+    sM["FireRate"] = 0.05
+    sM["AmmoPerClip"] = math.huge
+    sM["Range"] = 5000
+    sM["ReloadTime"] = 0.05
+    sM["Bullets"] = 1
+    sM["AutoFire"] = true
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Mod Remington 870",
+	Default = Enum.KeyCode.H,
+	Hold = false,
+	Callback = function() 
+        local player = game:GetService("Players").LocalPlayer
+    local gun = player.Backpack:FindFirstChild("Remington 870")
+    local sM = require(gun:FindFirstChild("GunStates"))
+    sM["Damage"] = 100
+    sM["MaxAmmo"] = math.huge
+    sM["StoredAmmo"] = math.huge
+    sM["FireRate"] = 0.05
+    sM["AmmoPerClip"] = math.huge
+    sM["Range"] = 5000
+    sM["ReloadTime"] = 0.05
+    sM["Bullets"] = 1
+    sM["AutoFire"] = true
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Mod AK-47",
+	Default = Enum.KeyCode.J,
+	Hold = false,
+	Callback = function() 
+        local player = game:GetService("Players").LocalPlayer
+    local gun = player.Backpack:FindFirstChild("AK-47")
+    local sM = require(gun:FindFirstChild("GunStates"))
+    sM["Damage"] = 100
+    sM["MaxAmmo"] = math.huge
+    sM["StoredAmmo"] = math.huge
+    sM["FireRate"] = 0.05
+    sM["AmmoPerClip"] = math.huge
+    sM["Range"] = 5000
+    sM["ReloadTime"] = 0.05
+    sM["Bullets"] = 1
+    sM["AutoFire"] = true
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Teleport to Cafeteria",
+	Default = Enum.KeyCode.K,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Cameras.Cafeteria.LENS.CFrame
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Teleport to Yard",
+	Default = Enum.KeyCode.L,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Cameras.Courtyard.LENS.CFrame
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Teleport to Guards",
+	Default = Enum.KeyCode.Z,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Prison_ITEMS.giver.M9.ITEMPICKUP.CFrame
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Teleport to Outside Car Spawner",
+	Default = Enum.KeyCode.X,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.busstop.Model.Part.CFrame
+	end    
+})
+
+
+
+elseif game.PlaceId ~= 155615604 then
+    OrionLib:MakeNotification({
+        Name = "Error",
+        Content = "You may only execute this code in Prison Life™",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
