@@ -188,7 +188,53 @@ ExecuteSection:AddBind({
 	end    
 })
 
+ExecuteSection:AddBind({
+	Name = "Inmates",
+	Default = Enum.KeyCode.X,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.busstop.Model.Part.CFrame
+	end    
+})
 
+ExecuteSection:AddBind({
+	Name = "Teleport to Outside Car Spawner",
+	Default = Enum.KeyCode.X,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.busstop.Model.Part.CFrame
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Inmate",
+	Default = Enum.KeyCode.F1,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.TeamColor = game.Teams.Inmates.TeamColor
+		game.Players.LocalPlayer.Character.Head:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Guards",
+	Default = Enum.KeyCode.F2,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.TeamColor = game.Teams.Guards.TeamColor
+		game.Players.LocalPlayer.Character.Head:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Criminals",
+	Default = Enum.KeyCode.F3,
+	Hold = false,
+	Callback = function() 
+        game.Players.LocalPlayer.TeamColor = game.Teams.Criminals.TeamColor
+		game.Players.LocalPlayer.Character.Head:Destroy()
+	end    
+})
 
 elseif game.PlaceId ~= 155615604 then
     OrionLib:MakeNotification({
