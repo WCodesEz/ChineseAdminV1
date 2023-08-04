@@ -13,30 +13,6 @@ if game.PlaceId == 155615604 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Chinese Admin", HidePremium = false, IntroText = "by noobyng2",SaveConfig = true, ConfigFolder = "OrionTest"})
 
--- Other
--- Anti Tase
-game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
-            game.Players.LocalPlayer.CharacterAdded:connect(function()
-            game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
-            game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
-            end)
-            print("Anti Tase Executed")
-
--- God
-print("God Executed")
-local Player = game.Players.LocalPlayer
-local Character = Player.Character
-local Humanoid = Character.Humanoid
-
-Humanoid.MaxHealth = 999999
-Humanoid.Health = Humanoid.MaxHealth / 2
-
-Humanoid.HealthChanged:connect(function()
-	if Humanoid.Health < 10 then
-		Humanoid.Health = Humanoid.MaxHealth
-	end
-end)
-
 -- Execute
 local ExecuteTab = Window:MakeTab({
 	Name = "Execute",
@@ -273,6 +249,37 @@ end
 end
 Player.Character.HumanoidRootPart.CFrame = cpos
 	end    
+})
+
+ExecuteTab:AddButton({
+	Name = "AntiTase",
+	Callback = function()
+		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+		game.Players.LocalPlayer.CharacterAdded:connect(function()
+		game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+		end)
+		print("Anti Tase Executed")
+  	end    
+})
+
+ExecuteTab:AddButton({
+	Name = "GodMode",
+	Callback = function()
+		print("God Executed")
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+
+Humanoid.MaxHealth = 999999
+Humanoid.Health = Humanoid.MaxHealth / 2
+
+Humanoid.HealthChanged:connect(function()
+	if Humanoid.Health < 10 then
+		Humanoid.Health = Humanoid.MaxHealth
+	end
+end)
+  	end    
 })
 
 elseif game.PlaceId ~= 155615604 then
