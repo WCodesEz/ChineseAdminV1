@@ -198,15 +198,6 @@ ExecuteSection:AddBind({
 })
 
 ExecuteSection:AddBind({
-	Name = "Teleport to Outside Car Spawner",
-	Default = Enum.KeyCode.X,
-	Hold = false,
-	Callback = function() 
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.busstop.Model.Part.CFrame
-	end    
-})
-
-ExecuteSection:AddBind({
 	Name = "Inmates",
 	Default = Enum.KeyCode.F1,
 	Hold = false,
