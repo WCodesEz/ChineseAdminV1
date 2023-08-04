@@ -263,25 +263,6 @@ ExecuteTab:AddButton({
   	end    
 })
 
-ExecuteTab:AddButton({
-	Name = "GodMode",
-	Callback = function()
-		print("God Executed")
-local Player = game.Players.LocalPlayer
-local Character = Player.Character
-local Humanoid = Character.Humanoid
-
-Humanoid.MaxHealth = 999999
-Humanoid.Health = Humanoid.MaxHealth / 2
-
-Humanoid.HealthChanged:connect(function()
-	if Humanoid.Health < 100 then
-		Humanoid.Health = Humanoid.MaxHealth
-	end
-end)
-  	end    
-})
-
 elseif game.PlaceId ~= 155615604 then
     OrionLib:MakeNotification({
         Name = "Error",
