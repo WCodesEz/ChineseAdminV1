@@ -251,6 +251,23 @@ Player.Character.HumanoidRootPart.CFrame = cpos
 	end    
 })
 
+ExecuteSection:AddBind({
+	Name = "Get all guns",
+	Default = Enum.KeyCode.F5,
+	Hold = false,
+	Callback = function() 
+ local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["Remington 870"].ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver.M9.ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["AK-47"].ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+	end    
+})
+
 ExecuteTab:AddButton({
 	Name = "AntiTase",
 	Callback = function()
