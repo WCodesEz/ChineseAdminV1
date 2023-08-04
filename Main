@@ -1,3 +1,12 @@
+-- ░█████╗░██╗░░██╗██╗███╗░░██╗███████╗░██████╗███████╗  ░█████╗░██████╗░███╗░░░███╗██╗███╗░░██╗
+-- ██╔══██╗██║░░██║██║████╗░██║██╔════╝██╔════╝██╔════╝  ██╔══██╗██╔══██╗████╗░████║██║████╗░██║
+-- ██║░░╚═╝███████║██║██╔██╗██║█████╗░░╚█████╗░█████╗░░  ███████║██║░░██║██╔████╔██║██║██╔██╗██║
+-- ██║░░██╗██╔══██║██║██║╚████║██╔══╝░░░╚═══██╗██╔══╝░░  ██╔══██║██║░░██║██║╚██╔╝██║██║██║╚████║
+-- ╚█████╔╝██║░░██║██║██║░╚███║███████╗██████╔╝███████╗  ██║░░██║██████╔╝██║░╚═╝░██║██║██║░╚███║
+-- ░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚══════╝╚═════╝░╚══════╝  ╚═╝░░╚═╝╚═════╝░╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝
+
+-- if you came here to skid off this, stop right now in the name of the law of america!1!!
+
 if game.PlaceId == 155615604 then
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
@@ -189,15 +198,6 @@ ExecuteSection:AddBind({
 })
 
 ExecuteSection:AddBind({
-	Name = "Inmates",
-	Default = Enum.KeyCode.X,
-	Hold = false,
-	Callback = function() 
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.busstop.Model.Part.CFrame
-	end    
-})
-
-ExecuteSection:AddBind({
 	Name = "Teleport to Outside Car Spawner",
 	Default = Enum.KeyCode.X,
 	Hold = false,
@@ -207,7 +207,7 @@ ExecuteSection:AddBind({
 })
 
 ExecuteSection:AddBind({
-	Name = "Inmate",
+	Name = "Inmates",
 	Default = Enum.KeyCode.F1,
 	Hold = false,
 	Callback = function() 
@@ -233,6 +233,28 @@ ExecuteSection:AddBind({
 	Callback = function() 
         game.Players.LocalPlayer.TeamColor = game.Teams.Criminals.TeamColor
 		game.Players.LocalPlayer.Character.Head:Destroy()
+	end    
+})
+
+ExecuteSection:AddBind({
+	Name = "Arrest Crims",
+	Default = Enum.KeyCode.F4,
+	Hold = false,
+	Callback = function() 
+        local Player = game.Players.LocalPlayer
+local cpos = Player.Character.HumanoidRootPart.CFrame
+for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
+if v.Name ~= Player.Name then
+local i = 10
+    repeat
+    wait()
+    i = i-1
+    game.Workspace.Remote.arrest:InvokeServer(v.Character.HumanoidRootPart)
+    Player.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+    until i == 0
+end
+end
+Player.Character.HumanoidRootPart.CFrame = cpos
 	end    
 })
 
