@@ -256,16 +256,21 @@ ExecuteSection:AddBind({
 	Default = Enum.KeyCode.F5,
 	Hold = false,
 	Callback = function() 
- local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["Remington 870"].ITEMPICKUP
-local Event = game:GetService("Workspace").Remote.ItemHandler
-Event:InvokeServer(A_1)
-local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver.M9.ITEMPICKUP
-local Event = game:GetService("Workspace").Remote.ItemHandler
-Event:InvokeServer(A_1)
-local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["AK-47"].ITEMPICKUP
-local Event = game:GetService("Workspace").Remote.ItemHandler
-Event:InvokeServer(A_1)
-	end    
+		ExecuteSection:NewButton("Crash Server (REMINGTON)", "Crashes the server with a remington", function()
+			local player = game:GetService("Players").LocalPlayer
+		local gun = player.Backpack:FindFirstChild("Remington 870")
+		local sM = require(gun:FindFirstChild("GunStates"))
+		sM["Damage"] = 100
+		sM["MaxAmmo"] = math.huge
+		sM["StoredAmmo"] = math.huge
+		sM["FireRate"] = 0.0000000000001
+		sM["AmmoPerClip"] = math.huge
+		sM["Range"] = math.huge
+		sM["ReloadTime"] = 0.00000000000001
+		sM["Bullets"] = 10
+		sM["AutoFire"] = true
+		end)
+	end
 })
 
 ExecuteTab:AddButton({
